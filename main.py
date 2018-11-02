@@ -2,8 +2,12 @@
 import psycopg2
 from psycopg2 import Error
 
-question1='What are the most popular three articles of all time?'
+ques1='What are the most popular three articles of all time?'
 query1="select count(*) as views,slug from articles INNER JOIN log on (concat('/article/',articles.slug)=log.path) where log.status LIKE '%200%' group by articles.slug order by views DESC limit 3"
+
+ques2="Who are the most popular article authors of all time?"
+query2="select count(*) as views,authors.name from articles INNER JOIN authors on (authors.id=articles.author) INNER JOIN log on (concat('/article/',articles.slug)=log.path) where log.status LIKE '%200%' group by authors.name order by views DESC;"
+
 class LogsAnalysis:
     def __init__(self):
         try:
@@ -18,13 +22,13 @@ class LogsAnalysis:
         result=self.execute_query(query)
         print (ques)
         for i in range(len(result)):
-            print ('"',result[i][0]," — ",result[i][1]," ",str,'\n')
+            print ('"',result[i][1]," — ",result[i][0]," ",str,'\n')
     def exit(self):
         self.db.close()
 
 
 if __name__ == '__main__':
     LogsAnalysis = LogsAnalysis()
-    LogsAnalysis.solve(question1, query1)
+    LogsAnalysis.solve(ques1, query1)
     LogsAnalysis.exit()
 
