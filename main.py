@@ -13,7 +13,7 @@ query3="select * from (select a.day,round(cast((100*b.hits) as numeric) / cast(a
 class LogsAnalysis:
     def __init__(self):
         try:
-            self.db = psycopg2.connect(host="localhost",database="news", user="postgres", password="postgres")
+            self.db = psycopg2.connect(host="localhost", port="5432",dbname="news", user="postgres", password="123456")
             self.cursor = self.db.cursor()
         except (Exception, psycopg2.DatabaseError) as error :
             print ("Error while connecting to PostgreSQL", error)
