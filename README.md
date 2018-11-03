@@ -21,13 +21,16 @@ See [main.py](main.py) for more details.
 
 * Then run the following command to execute it in `news` database. You might have to create the database before-hand.
 
+```sh
 psql -d news -f newsdata.sql
+```
 
 * Finally run the script.
 
+```sh
 python main.py
-
+```
 
 * It will present you with necessary stats.
 
-
+----
