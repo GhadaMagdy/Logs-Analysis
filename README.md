@@ -17,7 +17,10 @@ See [main.py](main.py) for more details.
 
 ## Running
 
-* Make sure you have `newsdata.sql`, the SQL script file with all the data. It can be downloaded from the Udacity course page.
+* Make sure you have `newsdata.sql`, the SQL script file with all the data.
+```sh
+https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip
+```
 
 * Then run the following command to execute it in `news` database. You might have to create the database before-hand.
 
