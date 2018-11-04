@@ -5,9 +5,9 @@ from psycopg2 import Error
 
 ques1='What are the most popular three articles of all time?'
 query1="""
-select title, count(*) as views from articles INNER 
+select articles.title, count(*) as views from articles INNER 
 JOIN log on (concat('/article/',articles.slug)=log.path) where 
-log.status LIKE '%200%' group by articles.slug order
+log.status LIKE '%200%' group by articles.title order
  by views DESC limit 3
 """
 
